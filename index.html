@@ -27,10 +27,19 @@
    <input type="text" id='num'>
    <button id='btn'>Guess</button>
    <script>
-        const num = document.getElementById('num');
+      
         const btn = document.getElementById('btn');
+        const random = Math.floor(Math.random()*6)+1;
+
         btn.addEventListener('click',function(e){
-            console.log(num.value);
+            const num = (document.getElementById('num')).value;
+
+            if ( ! num) {
+                alert("請輸入");
+                return;
+            }
+            console.log(random);
+            console.log(num);
 
         });
    
