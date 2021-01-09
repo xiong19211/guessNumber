@@ -27,19 +27,46 @@
    <input type="number" id='num'>
    <button id='btn'>Guess</button>
    <script>
+      //ES6 之後const 常數，用在不會改變的時候。
       
         const btn = document.getElementById('btn');
         const random = Math.floor(Math.random()*6)+1;
 
         btn.addEventListener('click',function(e){
-            const num = (document.getElementById('num')).value;
+        let num = (document.getElementById('num')).value;
 
             if ( ! num) {
                 alert("請輸入");
                 return;
+            } //排除未填
+
+            if (num>6) {
+                alert("請輸入1~6");
+                return;
+            } //排除>6的值
+            num = parseInt(num);
+            console.log("random="+random);
+            console.log(typeof num);
+            console.log(typeof random);
+
+            if (num === random) {
+                alert("你猜對了!");
+                return;
             }
-            console.log(random);
-            console.log(num);
+
+            if (num != random) {
+                alert("你猜錯了!");
+                return;
+            }
+            if (num>random) {
+                alert("小一點")
+                return;
+            }
+            if (num<random) {
+                alert("大一點")
+            }
+        
+
 
         });
    
